@@ -55,7 +55,6 @@ app.post('/api/products', async (req, res) => {
             assuredImage,
             description,
             sizes,
-            sizes2,
             variant,
             carousel_images,
             colors
@@ -70,7 +69,6 @@ app.post('/api/products', async (req, res) => {
             assuredImage,
             description,
             sizes,
-            sizes2,
             variant,
             carousel_images,
             colors
