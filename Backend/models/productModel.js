@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema({
     assuredImage: String,
     description: String,
     sizes: [String],
+    sizes2: [String],
     variant: String,
     carousel_images: [String],
     colors: [{
