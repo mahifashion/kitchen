@@ -1,0 +1,70 @@
+/* ProductList.css */
+
+.products-list {
+    max-width: 80%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.edit-row {
+    background-color: transparent;
+}
+
+.edit-row div {
+    margin-bottom: 10px;
+}
+
+.edit-row input {
+    width: calc(100% - 20px); /* Adjust input width */
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-row button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.edit-row button:hover {
+    background-color: #45a049;
+}
+
+.edit-row label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    font-weight: bold;
+}
+
+#c_image{
+    color: Green;
+    font-size: 20px;
+
+}
+#c_color{
+    color: Blue;
+    font-size: 20px;
+    
+}
