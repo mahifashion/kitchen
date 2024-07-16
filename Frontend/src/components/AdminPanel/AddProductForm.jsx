@@ -70,6 +70,7 @@ const AddProductForm = () => {
                 assuredImage: '/assets/logo/assured.png',
                 description: '',
                 sizes: [],
+                sizes2: [],
                 variant: '',
                 carousel_images: [],
                 colors: []
