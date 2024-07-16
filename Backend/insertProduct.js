@@ -17,7 +17,6 @@ const products = [
         assuredImage: "/assets/logo/assured.png",
         description: "Product description for Modern Rhythm...",
         sizes: ["6", "7", "8", "9", "10", "11"],
-        size2: ["6", "7", "8", "9", "10", "11"],
         variant: "Select Size",
         carousel_images: ["/assets/products/p1.jpg", "/assets/products/p1.jpg", "/assets/products/p1.jpg"]
     },
@@ -30,7 +29,6 @@ const products = [
         assuredImage: "/assets/logo/assured.png",
         description: "Product description for Modern Style...",
         sizes: ["7", "8", "9", "10", "11", "12"],
-        sizes2: ["7", "8", "9", "10", "11", "12"],
         variant: "Select Size",
         carousel_images: ["/assets/products/p1.jpg", "/assets/products/p1.jpg", "/assets/products/p1.jpg"]
     }
