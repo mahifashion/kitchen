@@ -76,7 +76,7 @@ const Payment = () => {
             paymentLink = `tez://upi/pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
             break;
         case 'upi':
-           paymentLink = 'paytm://pay?amount=${amount}&transactionId=${transactionId}&currency=${currency}&note=${note}&signature=${signature}';           
+                 
             break;
         default:
             console.log('Select a payment method');
