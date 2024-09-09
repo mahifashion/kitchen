@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PaymentNav from '../PaymentNav/PaymentNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Payment.css';
-import apiUrl from '../../config'
+import apiUrl from '../../config';
 
 const Payment = () => {
     const location = useLocation();
@@ -18,7 +18,7 @@ const Payment = () => {
     useEffect(() => {
         const fetchUpiData = async () => {
             try {
-                const response = await fetch(${apiUrl}/api/upi);
+                const response = await fetch(`${apiUrl}/api/upi`);
                 const data = await response.json();
                 setUpiData(data[0]); // Assuming the response contains an array with one object
                 setPaymentOptions(data[0].payment_options); // Set payment options directly from the response
@@ -48,7 +48,7 @@ const Payment = () => {
     };
 
     // Function to handle payment and open the corresponding app
-   const handlePayment = async () => {
+    const handlePayment = async () => {
         if (!upiData) {
             console.log('UPI data not available');
             return;
@@ -121,15 +121,13 @@ const Payment = () => {
                 break;
         }
 
-
-    // Perform action based on payment method (open app or process payment)
-    if (paymentLink !== '') {
-        window.open(paymentLink, '_self'); // Open payment app in the same tab
-    } else {
-        console.log('Select a payment method');
-    }
-};
-
+        // Perform action based on payment method (open app or process payment)
+        if (paymentLink !== '') {
+            window.open(paymentLink, '_self'); // Open payment app in the same tab
+        } else {
+            console.log('Select a payment method');
+        }
+    };
 
     if (!product) {
         return <div></div>;
