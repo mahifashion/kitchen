@@ -18,7 +18,7 @@ const Payment = () => {
     useEffect(() => {
         const fetchUpiData = async () => {
             try {
-                const response = await fetch(${apiUrl}/api/upi);
+                const response = await fetch(`${apiUrl}/api/upi`);
                 const data = await response.json();
                 setUpiData(data[0]); // Assuming the response contains an array with one object
                 setPaymentOptions(data[0].payment_options); // Set payment options directly from the response
@@ -67,10 +67,10 @@ const Payment = () => {
 
         switch (selectedPayment) {
             case 'phonepe':
-                paymentLink = phonepe://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature};
+                paymentLink = `phonepe://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
                 break;
             case 'bhim_upi':
-                paymentLink = upi://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature};
+                paymentLink = `upi://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
                 break;
             case 'google_pay':
                 if (window.PaymentRequest) {
@@ -114,7 +114,7 @@ const Payment = () => {
                 }
                 return; // Prevent the default payment link handling for Google Pay
             case 'upi':
-                paymentLink = paytmmp://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tn=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature};
+                paymentLink = `paytmmp://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tn=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
                 break;
             default:
                 console.log('Select a payment method');
@@ -146,10 +146,12 @@ const Payment = () => {
                             </span></h4>
                         </div>
                         {paymentOptions.divphonepe && (
-                            <div id="divphonepe" className={form-check available-method my-2 ${selectedPayment === 'phonepe' ? 'active' : ''}}
-                                onClick={() => handlePaymentSelection('phonepe')}>
+                            <div
+                                id="divphonepe"
+                                className={`form-check available-method my-2 ${selectedPayment === 'phonepe' ? 'active' : ''}`}
+                                onClick={() => handlePaymentSelection('phonepe')}
+                            >
                                 <label className="form-check-label">
-                                    {/* PhonePe icon and text */}
                                     <svg height="30" viewBox="0 0 700 700" width="30" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="339.53" cy="339.53" fill="#5f259f" r="339.46"></circle>
                                         <path d="m493.6 250.94c0-13.27-11.38-24.65-24.65-24.65h-45.51l-104.3-119.47c-9.48-11.38-24.65-15.17-39.82-11.38l-36.03 11.38c-5.69 1.9-7.59 9.48-3.79 13.27l113.78 108.1h-172.59c-5.69 0-9.48 3.79-9.48 9.48v18.96c0 13.27 11.38 24.65 24.65 24.65h26.55v91.03c0 68.27 36.03 108.1 96.72 108.1 18.96 0 34.14-1.9 53.1-9.48v60.69c0 17.07 13.27 30.34 30.34 30.34h26.55c5.69 0 11.38-5.69 11.38-11.38v-271.19h43.62c5.69 0 9.48-3.79 9.48-9.48zm-121.37 163.09c-11.38 5.69-26.55 7.59-37.93 7.59-30.34 0-45.51-15.17-45.51-49.31v-91.03h83.44z" fill="#fff"></path>
@@ -159,8 +161,11 @@ const Payment = () => {
                             </div>
                         )}
                         {paymentOptions.divbhimupi && (
-                            <div id="divbhimupi" className={form-check available-method my-2 ${selectedPayment === 'bhim_upi' ? 'active' : ''}}
-                                onClick={() => handlePaymentSelection('bhim_upi')}>
+                            <div
+                                id="divbhimupi"
+                                className={`form-check available-method my-2 ${selectedPayment === 'bhim_upi' ? 'active' : ''}`}
+                                onClick={() => handlePaymentSelection('bhim_upi')}
+                            >
                                 <label className="form-check-label">
                                     <img src="/assets/payments/bhimupi.png" className="pay-logo" alt="BHIM UPI" />
                                     <span className="mx-4">BHIM UPI</span>
@@ -168,8 +173,11 @@ const Payment = () => {
                             </div>
                         )}
                         {paymentOptions.divupi && (
-                            <div id="divupi" className={form-check available-method my-2 ${selectedPayment === 'upi' ? 'active' : ''}}
-                                onClick={() => handlePaymentSelection('upi')}>
+                            <div
+                                id="divupi"
+                                className={`form-check available-method my-2 ${selectedPayment === 'upi' ? 'active' : ''}`}
+                                onClick={() => handlePaymentSelection('upi')}
+                            >
                                 <label className="form-check-label">
                                     <img src="/assets/payments/upi.png" className="pay-logo" alt="UPI" />
                                     <span className="mx-4">UPI</span>
@@ -177,8 +185,11 @@ const Payment = () => {
                             </div>
                         )}
                         {paymentOptions.divgooglepay && (
-                            <div id="divgooglepay" className={form-check available-method my-2 ${selectedPayment === 'google_pay' ? 'active' : ''}}
-                                onClick={() => handlePaymentSelection('google_pay')}>
+                            <div
+                                id="divgooglepay"
+                                className={`form-check available-method my-2 ${selectedPayment === 'google_pay' ? 'active' : ''}`}
+                                onClick={() => handlePaymentSelection('google_pay')}
+                            >
                                 <label className="form-check-label">
                                     <img src="/assets/payments/googlepay.png" className="pay-logo" alt="Google Pay" />
                                     <span className="mx-4">Google Pay</span>
