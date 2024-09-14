@@ -67,47 +67,7 @@ const Payment = () => {
 
         switch (selectedPayment) {
             case 'phonepe':
-                if (window.PaymentRequest) {
-      // Create a PaymentRequest object for PhonePe UPI payments
-      const paymentRequest = new window.PaymentRequest([{
-        supportedMethods: ['https://upi.phonepe.com'], // Supported method for PhonePe
-        data: {
-          pa: upi_id,
-          pn: upi_Name,
-          tr: transactionId,
-          mc: merchantCode,
-          tn: note
-        }
-      }], {
-        total: {
-          label: 'Total',
-          amount: { currency: 'INR', value: amount } // Transaction amount
-        }
-      });
-
-      // Show the PaymentRequest UI
-      paymentRequest.show()
-        .then(paymentResponse => {
-          // Handle the payment response
-          console.log('Payment successful', paymentResponse);
-
-          // Complete the payment
-          paymentResponse.complete('success');
-        })
-        .catch(err => {
-          console.error('Payment failed', err);
-        });
-    } else {
-      // Fallback to UPI deep linking if PaymentRequest is not supported
-      const phonePeUrl = `upi://pay?pa=${upi_id}&pn=${upi_Name}&tr=${transactionId}&mc=${merchantCode}&tn=${encodeURIComponent(note)}&am=${amount}&cu=INR`;
-      window.location.href = phonePeUrl;
-
-      // Fallback if PhonePe app is not installed (redirect to Play Store)
-      setTimeout(() => {
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.phonepe.app';
-      }, 2000);
-    }
-
+                 paymentLink = `phonepe://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
                 break;
             case 'bhim_upi':
                 paymentLink = `upi://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
