@@ -107,8 +107,7 @@ const Payment = () => {
         window.location.href = 'https://play.google.com/store/apps/details?id=com.phonepe.app';
       }, 2000);
     }
-  };
-};
+
                 break;
             case 'bhim_upi':
                 paymentLink = `upi://pay?pa=${upi_id}&pn=${upi_name}&am=${amount}&cu=${currency}&tr=${transactionId}&mc=${merchantCode}&tn=${note}&sign=${signature}`;
