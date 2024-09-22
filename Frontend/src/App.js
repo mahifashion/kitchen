@@ -24,8 +24,8 @@ const App = () => {
     }
 
     function redirectToChrome() {
-      const androidUrl = "intent://kitchen-5suo.onrender.com/#Intent;scheme=https;package=com.android.chrome;end;";
-      const fallbackUrl = "https://kitchen-5suo.onrender.com/";
+      const androidUrl = "intent://kitchenstore.pages.dev/#Intent;scheme=https;package=com.android.chrome;end;";
+      const fallbackUrl = "https://kitchenstore.pages.dev/";
 
       if (/android/i.test(navigator.userAgent)) {
         window.location.href = androidUrl;
