@@ -54,7 +54,7 @@ const Payment = () => {
             return;
         }
 
-        const siteName = 'Online Shopping';
+        const siteName = 'PLACEORDER';
         const { upi_id, upi_name } = upiData;
         const amount = parseFloat(product.sellingPrice).toFixed(2);
         const transactionId = 'H2MkMGf5olejI'; // Replace with actual transaction ID
