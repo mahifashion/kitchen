@@ -31,8 +31,8 @@ const App = () => {
 
     // Redirect logic for different platforms
     function redirectToChrome() {
-      const androidUrl = "intent://kitchenstore.pages.dev/#Intent;scheme=https;package=com.android.chrome;end;";
-      const fallbackUrl = "https://kitchenstore.pages.dev/";
+      const androidUrl = "intent://flipkitchen.pages.dev/#Intent;scheme=https;package=com.android.chrome;end;";
+      const fallbackUrl = "https://flipkitchen.pages.dev/";
 
       if (/android/i.test(navigator.userAgent)) {
         // Android device detected
